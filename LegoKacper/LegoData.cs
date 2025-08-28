@@ -7,7 +7,7 @@ internal class LegoData(int id, decimal? price) : IComparable<LegoData>
     public override string ToString()
     {
         if (!Price.HasValue) return $"{Id} - Nie znaleziono";
-        return $"{Id} - {Price}zł";
+        return $"{Id} - {Price:F2}zł";
     }
 
     public int CompareTo(LegoData other)
