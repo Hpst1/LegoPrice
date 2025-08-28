@@ -6,7 +6,7 @@ public class Program
     public static async Task Main()
     {
         List<int> ids = GetIds();
-        List<LegoData> data = GetPrices(ids);
+        List<LegoData> data = await GetPrices(ids);
         data.Sort();
         DisplayData(data);
     }
@@ -19,14 +19,15 @@ public class Program
         }
     }
 
-    private static List<LegoData> GetPrices(List<int> ids)
+    private static async Task<List<LegoData>> GetPrices(List<int> ids)
     {
         LegoPriceService priceService = new();
         List<LegoData> data = [];
 
         foreach(int id in ids)
         {
-            data.Add(priceService.GetData(id).Result);
+            LegoData legoData = await priceService.GetData(id);
+            data.Add(legoData);
         }
 
         return data;
