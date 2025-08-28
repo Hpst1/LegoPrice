@@ -10,7 +10,7 @@ internal class LegoData(int id, decimal? price) : IComparable<LegoData>
         return $"{Id} - {Price:F2}zł";
     }
 
-    public int CompareTo(LegoData other)
+    public int CompareTo(LegoData other) 
     {
         if(Price.HasValue && other.Price.HasValue) return Price.Value.CompareTo(other.Price.Value);
         if(Price.HasValue) return -1; 
