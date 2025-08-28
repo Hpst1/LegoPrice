@@ -12,10 +12,7 @@ public class Program
 
     private static void DisplayData(List<LegoData> data)
     {
-        foreach(LegoData dataItem in data)
-        {
-            Console.WriteLine(dataItem);
-        }
+        foreach(LegoData dataItem in data) Console.WriteLine(dataItem);
     }
 
     private static async Task<List<LegoData>> GetPrices(List<int> ids)
@@ -39,14 +36,9 @@ public class Program
             int? id = ParseId(input);
             quit = id == 0;
 
-            if(!quit && id.HasValue)
-            {
-                ids.Add(id.Value);
-            }
-
+            if(!quit && id.HasValue) ids.Add(id.Value);
         }
         Console.Clear();
-
         return ids;
     }
 
