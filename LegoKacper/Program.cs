@@ -21,15 +21,9 @@ public class Program
     private static async Task<List<LegoData>> GetPrices(List<int> ids)
     {
         LegoPriceService priceService = new();
-        List<LegoData> data = [];
-
-        foreach(int id in ids)
-        {
-            LegoData legoData = await priceService.GetData(id);
-            data.Add(legoData);
-        }
-
-        return data;
+        var tasks = ids.Select(id => priceService.GetData(id));
+        var results = await Task.WhenAll(tasks);
+        return results.ToList();
     }
 
     private static List<int> GetIds()
