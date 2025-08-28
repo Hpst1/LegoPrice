@@ -30,7 +30,7 @@ public class Program
         bool quit = false;
         List<int> ids = [];
 
-        while (!quit)
+        while(!quit)
         {
             string? input = Console.ReadLine();
             int? id = ParseId(input);

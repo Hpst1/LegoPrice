@@ -18,7 +18,7 @@ internal class LegoPriceService
 
             return new LegoData(id, price);
         }
-        catch (HttpRequestException)
+        catch(HttpRequestException)
         {
             return new LegoData(id, null);
         }
