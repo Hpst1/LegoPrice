@@ -4,8 +4,7 @@ public class Program
 {
     public static async Task Main()
     {
-        List<int> ids = GetIds();
-        List<LegoData> data = await GetPrices(ids);
+        List<LegoData> data = await GetPrices(GetIds());
         data.Sort();
         DisplayData(data);
     }
